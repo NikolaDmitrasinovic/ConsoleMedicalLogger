@@ -16,7 +16,7 @@ namespace ConsoleMedicalLogger.MedicalExams
 
         Random rnd = new Random();
 
-        public SugarLevel()
+        public SugarLevel(Patient patient):base(patient)
         {
             //random vals for demo purposes
             Value = rnd.Next(69, 125);

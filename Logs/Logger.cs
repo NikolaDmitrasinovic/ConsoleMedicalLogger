@@ -17,20 +17,20 @@ namespace ConsoleMedicalLogger.Logs
             Console.WriteLine($"[{DateTime.Now:G}] " + info);
 
             //LogFile
-            //if (!File.Exists(path))
-            //{
-            //    using (StreamWriter sw = File.CreateText(path))
-            //    {
-            //        sw.WriteLine($"[{DateTime.Now:G}] " + info);
-            //    }
-            //}
-            //else
-            //{
-            //    using (StreamWriter sw = File.AppendText(path))
-            //    {
-            //        sw.WriteLine($"[{DateTime.Now:G}] " + info);
-            //    }
-            //}
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine($"[{DateTime.Now:G}] " + info);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine($"[{DateTime.Now:G}] " + info);
+                }
+            }
         }
     }
 }

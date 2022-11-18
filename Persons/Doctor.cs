@@ -30,13 +30,13 @@ namespace ConsoleMedicalLogger.Persons
             switch (examId) //need better way to chose the exam
             {
                 case 0:
-                    exam = new BloodPressure();
+                    exam = new BloodPressure(patient);
                     break;
                 case 1:
-                    exam = new SugarLevel();
+                    exam = new SugarLevel(patient);
                     break;
                 case 2:
-                    exam = new CholesterolLevel();
+                    exam = new CholesterolLevel(patient);
                     break;
                 default:
                     Console.WriteLine("Greska pri izboru pregleda");

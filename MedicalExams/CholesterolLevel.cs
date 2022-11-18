@@ -15,7 +15,7 @@ namespace ConsoleMedicalLogger.MedicalExams
 
         Random rnd = new Random();
 
-        public CholesterolLevel()
+        public CholesterolLevel(Patient patient):base(patient)
         {
             //random vals for demo purposes
             Value = rnd.NextDouble() * 10;

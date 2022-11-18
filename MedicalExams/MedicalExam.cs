@@ -9,12 +9,12 @@ namespace ConsoleMedicalLogger.MedicalExams
 {
     internal abstract class MedicalExam
     {
-        public Patient SelectPatient { get; set; }
+        public Patient SelectPatient { get; }
         public bool done { get; set; }
 
-        public MedicalExam()
+        public MedicalExam(Patient patient)
         {
-            SelectPatient = new Patient();
+            SelectPatient = patient;
             done = false;
         }
 

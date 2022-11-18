@@ -10,12 +10,12 @@ namespace ConsoleMedicalLogger
             Console.WriteLine("Medical exam logger");
 
             Doctor drMilan = new Doctor("Milan", "Milanovic", "opsti lekar");
-            Patient pacDragan = new Patient("Dragan", "Draganic", "0101999123654", "Dd0011258");
-            pacDragan.ChosePersonalDoctor(drMilan);
-            drMilan.CallForExam(pacDragan, 1);
-            drMilan.CallForExam(pacDragan, 0);
-            pacDragan.TakeExam();
-            pacDragan.TakeExam();
+            Patient patientDragan = new Patient("Dragan", "Draganic", "0101999123654", "Dd0011258");
+            patientDragan.ChosePersonalDoctor(drMilan);
+            drMilan.CallForExam(patientDragan, 1);
+            drMilan.CallForExam(patientDragan, 0);
+            patientDragan.TakeExam();
+            patientDragan.TakeExam();
         }
     }
 }

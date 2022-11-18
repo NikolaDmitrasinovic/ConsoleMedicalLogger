@@ -16,7 +16,7 @@ namespace ConsoleMedicalLogger.MedicalExams
 
         private Random rnd = new Random();
 
-        public BloodPressure()
+        public BloodPressure(Patient patient):base(patient)
         {
             //random vals for demo purposes
             ValueTtop = rnd.Next(91, 135);

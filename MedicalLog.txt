@@ -1,7 +1,7 @@
-[18-Nov-22 19:42:05] Kreiran doktor "Milan"
-[18-Nov-22 19:42:05] Kreiran pacijent "Dragan"
-[18-Nov-22 19:42:05] Izabran lekar: "Milan", pacijent: "Dragan"
-[18-Nov-22 19:42:05] Kreiran pregled: "Nivo secera u krvi", pacijent: "Dragan"
-[18-Nov-22 19:42:05] Kreiran pregled: "Krvni pritisak", pacijent: "Dragan"
-[18-Nov-22 19:42:05] Uradjen test Nivo secera, pacijent: "", rezultati: nivo: 74mg/dl, poslenji put jeo: 19:42
-[18-Nov-22 19:42:05] Uradjen test Krvni pritisak, pacijent: "", rezultati: donji: 72, gornji: 115, otkucaji: 77
+[18-Nov-22 20:57:15] Kreiran doktor "Milan"
+[18-Nov-22 20:57:15] Kreiran pacijent "Dragan"
+[18-Nov-22 20:57:15] Izabran lekar: "Milan", pacijent: "Dragan"
+[18-Nov-22 20:57:15] Kreiran pregled: "Nivo secera u krvi", pacijent: "Dragan"
+[18-Nov-22 20:57:15] Kreiran pregled: "Krvni pritisak", pacijent: "Dragan"
+[18-Nov-22 20:57:15] Uradjen test Nivo secera, pacijent: "Dragan", rezultati: nivo: 122mg/dl, poslenji put jeo: 20:57
+[18-Nov-22 20:57:15] Uradjen test Krvni pritisak, pacijent: "Dragan", rezultati: donji: 79, gornji: 113, otkucaji: 73
