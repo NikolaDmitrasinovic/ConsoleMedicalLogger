@@ -10,19 +10,22 @@ namespace ConsoleMedicalLogger.MedicalExams
 {
     internal class BloodPressure : MedicalExam
     {
-        public int ValueTtop { get; set; }
-        public int ValueBottom { get; set; }
-        public int Pulse { get; set; }
+        public int ValueTtop { get; }
+        public int ValueBottom { get; }
+        public int Pulse { get; }
 
         private Random rnd = new Random();
 
-        public override void TakeExam()
+        public BloodPressure()
         {
-            //just some sim vals
+            //random vals for demo purposes
             ValueTtop = rnd.Next(91, 135);
             ValueBottom = rnd.Next(72, 90);
             Pulse = rnd.Next(60, 100);
+        }
 
+        public override void TakeExam()
+        {
             Logger.LogEntry($"Uradjen test Krvni pritisak, pacijent: \"{SelectPatient.Name}\", rezultati: donji: {ValueBottom}, gornji: {ValueTtop}, otkucaji: {Pulse}");
         }
 

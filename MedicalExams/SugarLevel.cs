@@ -16,12 +16,15 @@ namespace ConsoleMedicalLogger.MedicalExams
 
         Random rnd = new Random();
 
-        public override void TakeExam()
+        public SugarLevel()
         {
-            //just some sim vals
+            //random vals for demo purposes
             Value = rnd.Next(69, 125);
             LastMealTime = DateTime.Now;
+        }
 
+        public override void TakeExam()
+        {
             Logger.LogEntry($"Uradjen test Nivo secera, pacijent: \"{SelectPatient.Name}\", rezultati: nivo: {Value}mg/dl, poslenji put jeo: {LastMealTime:t}");
         }
 

@@ -43,7 +43,6 @@ namespace ConsoleMedicalLogger.Persons
                     return;
             }
 
-            exam.SelectPatient = patient;
             patient.MyExams.Add(exam);
             Logger.LogEntry($"Kreiran pregled: \"{exam.ToString()}\", pacijent: \"{patient.Name}\"");
         }

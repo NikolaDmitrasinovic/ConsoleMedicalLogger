@@ -10,17 +10,20 @@ namespace ConsoleMedicalLogger.MedicalExams
 {
     internal class CholesterolLevel : MedicalExam
     {
-        public double Value { get; set; }
-        public DateTime LastMealTime { get; set; }
+        public double Value { get; }
+        public DateTime LastMealTime { get; }
 
         Random rnd = new Random();
 
-        public override void TakeExam()
+        public CholesterolLevel()
         {
-            //just some simulated values
+            //random vals for demo purposes
             Value = rnd.NextDouble() * 10;
             LastMealTime = DateTime.Now;
+        }
 
+        public override void TakeExam()
+        {
             Logger.LogEntry($"Uradjen test Nivo holesterola, pacijent: \"{SelectPatient.Name}\", rezultati: nivo: {Value:0.00} mmol/L, poslenji put jeo: {LastMealTime:t}");
         }
 

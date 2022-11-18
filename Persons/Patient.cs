@@ -72,10 +72,10 @@ namespace ConsoleMedicalLogger.Persons
         {
             foreach (MedicalExam exam in MyExams)
             {
-                exam.TakeExam();
+                exam.TakeExam(); //TakeExam method from MedicalExam class
                 exam.done = true;
             }
-            MyExams = MyExams.Where(ex => ex.done == true).ToList();
+            MyExams = MyExams.Where(ex => !ex.done).ToList();
         }
     }
 }
