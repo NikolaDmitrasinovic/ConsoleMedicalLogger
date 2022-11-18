@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleMedicalLogger.MedicalExams
 {
-    internal class MedicalExam
+    internal abstract class MedicalExam
     {
         public Patient SelectPatient { get; set; }
         public bool done { get; set; }

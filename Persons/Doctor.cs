@@ -25,7 +25,7 @@ namespace ConsoleMedicalLogger.Persons
 
         public void CallForExam(Patient patient, int examId)
         {
-            MedicalExam exam = new MedicalExam();
+            MedicalExam exam;
 
             switch (examId) //need better way to chose the exam
             {
