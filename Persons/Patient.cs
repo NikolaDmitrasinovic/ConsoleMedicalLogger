@@ -12,14 +12,20 @@ namespace ConsoleMedicalLogger.Persons
 {
     internal class Patient : Person, IPatient
     {
-        public string PersonalId { get; set; }
+        private string personalId;
+
+        public string PersonalId
+        {
+            get { return personalId; }
+        }
+
         public string MedicalRecordId { get; set; } //need singleton to generate val
         public Doctor? chosenDoctor { get; set; }
         public List<MedicalExam> MyExams { get; set; }
 
         public Patient(string name, string surname, string _personalId, string medicalRecordId):base(name, surname)
         {
-            PersonalId = _personalId;
+            personalId = _personalId;
             MedicalRecordId = medicalRecordId;
             MyExams= new List<MedicalExam>();
 
@@ -28,7 +34,7 @@ namespace ConsoleMedicalLogger.Persons
 
         public Patient()
         {
-            PersonalId = string.Empty;
+            personalId = string.Empty;
             MedicalRecordId = string.Empty;
             MyExams = new List<MedicalExam>();
         }
@@ -57,7 +63,7 @@ namespace ConsoleMedicalLogger.Persons
                 MyExams[0].TakeExam();
                 MyExams[0].done= true;
 
-                MyExams = MyExams.Where(ex => ex.done == true).ToList();
+                MyExams = MyExams.Where(ex => !ex.done).ToList();
             }            
         }
 

@@ -12,3 +12,10 @@
 [18-Nov-22 16:49:42] Kreiran pregled: "Krvni pritisak", pacijent: "Dragan"
 [18-Nov-22 16:49:42] Uradjen test Nivo secera, pacijent: "Dragan", rezultati: nivo: 108mg/dl, poslenji put jeo: 16:49
 [18-Nov-22 16:49:42] Uradjen test Nivo secera, pacijent: "Dragan", rezultati: nivo: 98mg/dl, poslenji put jeo: 16:49
+[18-Nov-22 17:03:05] Kreiran doktor "Milan"
+[18-Nov-22 17:03:05] Kreiran pacijent "Dragan"
+[18-Nov-22 17:03:05] Izabran lekar: "Milan", pacijent: "Dragan"
+[18-Nov-22 17:03:05] Kreiran pregled: "Nivo secera u krvi", pacijent: "Dragan"
+[18-Nov-22 17:03:05] Kreiran pregled: "Krvni pritisak", pacijent: "Dragan"
+[18-Nov-22 17:03:05] Uradjen test Nivo secera, pacijent: "Dragan", rezultati: nivo: 72mg/dl, poslenji put jeo: 17:03
+[18-Nov-22 17:03:05] Uradjen test Nivo secera, pacijent: "Dragan", rezultati: nivo: 115mg/dl, poslenji put jeo: 17:03
