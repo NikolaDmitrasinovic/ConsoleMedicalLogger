@@ -13,12 +13,12 @@ namespace ConsoleMedicalLogger.Persons
     internal class Doctor : Person, IDoctor
     {
         public string Specialization { get; set; }
-        public List<Patient> MyPatients { get; set; }
+        private List<Patient> myPatients;
 
         public Doctor(string name, string surname, string specialization):base(name, surname)
         {
             Specialization = specialization;
-            MyPatients = new List<Patient>();
+            myPatients = new List<Patient>();
 
             Logger.LogEntry($"Kreiran doktor \"{name}\"");
         }
@@ -46,6 +46,18 @@ namespace ConsoleMedicalLogger.Persons
             exam.SelectPatient = patient;
             patient.MyExams.Add(exam);
             Logger.LogEntry($"Kreiran pregled: \"{exam.ToString()}\", pacijent: \"{patient.Name}\"");
+        }
+
+        public void AddRemovePatient(Patient patient)
+        {
+            if (myPatients.Contains(patient))
+            {
+                myPatients.Remove(patient);
+            }
+            else
+            {
+                myPatients.Add(patient);
+            }
         }
     }
 }

@@ -10,5 +10,7 @@ namespace ConsoleMedicalLogger.Persons.IPerson
     internal interface IDoctor
     {
         void CallForExam(Patient patient, int examId);
+
+        void AddRemovePatient(Patient patient);
     }
 }
