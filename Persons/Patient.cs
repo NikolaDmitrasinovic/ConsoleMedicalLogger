@@ -12,20 +12,20 @@ namespace ConsoleMedicalLogger.Persons
 {
     internal class Patient : Person, IPatient
     {
-        private string personalId;
+        //private string personalId;
 
-        public string PersonalId
-        {
-            get { return personalId; }
-        }
-
+        //public string PersonalId
+        //{
+        //    get { return personalId; }
+        //}
+        public string PersonalId { get; }
         public string MedicalRecordId { get; set; } //need singleton to generate val
         public Doctor? chosenDoctor { get; set; }
         public List<MedicalExam> MyExams { get; set; }
 
         public Patient(string name, string surname, string _personalId, string medicalRecordId):base(name, surname)
         {
-            personalId = _personalId;
+            PersonalId = _personalId;
             MedicalRecordId = medicalRecordId;
             MyExams= new List<MedicalExam>();
 
@@ -34,7 +34,7 @@ namespace ConsoleMedicalLogger.Persons
 
         public Patient()
         {
-            personalId = string.Empty;
+            PersonalId = string.Empty;
             MedicalRecordId = string.Empty;
             MyExams = new List<MedicalExam>();
         }
