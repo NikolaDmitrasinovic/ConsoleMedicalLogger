@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using MedicalExams;
 
 namespace ConsoleMedicalLogger.Persons
 {
@@ -23,19 +24,22 @@ namespace ConsoleMedicalLogger.Persons
             Logger.LogEntry($"Kreiran doktor \"{name}\"");
         }
 
-        public void CallForExam(Patient patient, int examId)
+        public void CallForExam(Patient patient, string examName)
         {
+            examName = examName.Trim().ToLower().Replace(" ", string.Empty);
+            ExamList chosenExam = Enum.IsDefined(typeof(ExamList), examName) ? (ExamList)Enum.Parse(typeof(ExamList), examName): ExamList.unknown;
+
             MedicalExam exam;
 
-            switch (examId) //need better way to chose the exam
+            switch (chosenExam) //need better way to chose the exam
             {
-                case 0:
+                case ExamList.bloodpressure:
                     exam = new BloodPressure(patient);
                     break;
-                case 1:
+                case ExamList.sugarlevel:
                     exam = new SugarLevel(patient);
                     break;
-                case 2:
+                case ExamList.cholesterollevel:
                     exam = new CholesterolLevel(patient);
                     break;
                 default:

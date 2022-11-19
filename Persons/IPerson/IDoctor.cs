@@ -1,4 +1,5 @@
 ﻿using ConsoleMedicalLogger.MedicalExams;
+using MedicalExams;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ConsoleMedicalLogger.Persons.IPerson
 {
     internal interface IDoctor
     {
-        void CallForExam(Patient patient, int examId);
+        void CallForExam(Patient patient, string exam);
 
         void AddRemovePatient(Patient patient);
     }

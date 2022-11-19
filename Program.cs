@@ -1,5 +1,6 @@
 ﻿using ConsoleMedicalLogger.Persons;
 using ConsoleMedicalLogger.MedicalExams;
+using MedicalExams;
 
 namespace ConsoleMedicalLogger
 {
@@ -12,8 +13,8 @@ namespace ConsoleMedicalLogger
             Doctor drMilan = new Doctor("Milan", "Milanovic", "opsti lekar");
             Patient patientDragan = new Patient("Dragan", "Draganic", "0101999123654", "Dd0011258");
             patientDragan.ChosePersonalDoctor(drMilan);
-            drMilan.CallForExam(patientDragan, 1);
-            drMilan.CallForExam(patientDragan, 0);
+            drMilan.CallForExam(patientDragan, "sugarlevel");
+            drMilan.CallForExam(patientDragan, "Blood Pressure");
             patientDragan.TakeExam();
             patientDragan.TakeExam();
         }
