@@ -12,12 +12,6 @@ namespace ConsoleMedicalLogger.Persons
 {
     internal class Patient : Person, IPatient
     {
-        //private string personalId;
-
-        //public string PersonalId
-        //{
-        //    get { return personalId; }
-        //}
         public string PersonalId { get; }
         public string MedicalRecordId { get; set; } //need singleton to generate val
         public Doctor? chosenDoctor { get; set; }
