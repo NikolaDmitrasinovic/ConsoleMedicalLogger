@@ -53,16 +53,5 @@ namespace ConsoleMedicalLogger.Persons
                 MyExams = MyExams.Where(ex => !ex.done).ToList();
             }            
         }
-
-        //option to take all the exams
-        public void TakeAllExams()
-        {
-            foreach (MedicalExam exam in MyExams)
-            {
-                exam.TakeExam(); //TakeExam method from MedicalExam class
-                exam.done = true;
-            }
-            MyExams = MyExams.Where(ex => !ex.done).ToList();
-        }
     }
 }
