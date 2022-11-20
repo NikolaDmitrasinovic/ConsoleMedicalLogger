@@ -14,12 +14,12 @@ namespace ConsoleMedicalLogger.Persons
     internal class Doctor : Person, IDoctor
     {
         public string Specialization { get; set; }
-        private List<Patient> myPatients;
+        public List<Patient> MyPatients { get; }
 
         public Doctor(string name, string surname, string specialization):base(name, surname)
         {
             Specialization = specialization;
-            myPatients = new List<Patient>();
+            MyPatients = new List<Patient>();
 
             Logger.LogEntry($"Kreiran doktor \"{name}\"");
         }
@@ -53,13 +53,13 @@ namespace ConsoleMedicalLogger.Persons
 
         public void AddRemovePatient(Patient patient)
         {
-            if (myPatients.Contains(patient))
+            if (MyPatients.Contains(patient))
             {
-                myPatients.Remove(patient);
+                MyPatients.Remove(patient);
             }
             else
             {
-                myPatients.Add(patient);
+                MyPatients.Add(patient);
             }
         }
     }

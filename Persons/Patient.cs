@@ -26,13 +26,6 @@ namespace ConsoleMedicalLogger.Persons
             Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
         }
 
-        public Patient()
-        {
-            PersonalId = string.Empty;
-            MedicalRecordId = string.Empty;
-            MyExams = new List<MedicalExam>();
-        }
-
         public void ChosePersonalDoctor(Doctor doctor)
         {
             if (chosenDoctor == doctor)
