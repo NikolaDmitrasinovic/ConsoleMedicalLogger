@@ -26,7 +26,7 @@ namespace ConsoleMedicalLogger.Persons
 
         public void CallForExam(Patient patient, string examName)
         {
-            examName = examName.Trim().ToLower().Replace(" ", string.Empty);
+            examName = examName.ToLower().Replace(" ", string.Empty);
             ExamList chosenExam = Enum.IsDefined(typeof(ExamList), examName) ? (ExamList)Enum.Parse(typeof(ExamList), examName): ExamList.unknown;
 
             MedicalExam exam;
