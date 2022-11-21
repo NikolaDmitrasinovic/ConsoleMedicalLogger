@@ -26,29 +26,16 @@ namespace ConsoleMedicalLogger.Persons
 
         public void CallForExam(Patient patient, string examName)
         {
-            examName = examName.ToLower().Replace(" ", string.Empty);
-            ExamList chosenExam = Enum.IsDefined(typeof(ExamList), examName) ? (ExamList)Enum.Parse(typeof(ExamList), examName): ExamList.unknown;
-
-            MedicalExam exam;
-
-            switch (chosenExam) //need better way to chose the exam
+            try
             {
-                case ExamList.bloodpressure:
-                    exam = new BloodPressure(patient);
-                    break;
-                case ExamList.sugarlevel:
-                    exam = new SugarLevel(patient);
-                    break;
-                case ExamList.cholesterollevel:
-                    exam = new CholesterolLevel(patient);
-                    break;
-                default:
-                    Console.WriteLine("Greska pri izboru pregleda");
-                    return;
+                MedicalExam exam = MedicalExamFactory.ExamFactory(examName, patient);
+                patient.MyExams.Add(exam);
+                Logger.LogEntry($"Kreiran pregled: \"{exam.ToString()}\", pacijent: \"{patient.Name}\"");
             }
-
-            patient.MyExams.Add(exam);
-            Logger.LogEntry($"Kreiran pregled: \"{exam.ToString()}\", pacijent: \"{patient.Name}\"");
+            catch (Exception xcp)
+            {
+                Console.WriteLine(xcp.Message);
+            }           
         }
 
         public void AddRemovePatient(Patient patient)
