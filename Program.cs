@@ -11,7 +11,7 @@ namespace ConsoleMedicalLogger
             Console.WriteLine("Medical exam logger");
 
             Doctor drMilan = new Doctor("Milan", "Milanovic", "opsti lekar");
-            Patient patientDragan = new Patient("Dragan", "Draganic", "0101999123654", "Dd0011258");
+            Patient patientDragan = new Patient("Dragan", "Draganic", "0101999123654");
             patientDragan.ChosePersonalDoctor(drMilan);
             drMilan.CallForExam(patientDragan, "sugarLevel");
             drMilan.CallForExam(patientDragan, "Blood Pressure");

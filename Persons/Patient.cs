@@ -13,14 +13,16 @@ namespace ConsoleMedicalLogger.Persons
     internal class Patient : Person, IPatient
     {
         public string PersonalId { get; }
-        public string MedicalRecordId { get; set; } //need singleton to generate val
+        public string MedicalRecordId { get; }
         public Doctor? chosenDoctor { get; set; }
         public List<MedicalExam> MyExams { get; set; }
 
-        public Patient(string name, string surname, string _personalId, string medicalRecordId):base(name, surname)
+        public Patient(string name, string surname, string _personalId):base(name, surname)
         {
+            RecordIdGenerator id = RecordIdGenerator.Instance;
+
             PersonalId = _personalId;
-            MedicalRecordId = medicalRecordId;
+            MedicalRecordId = id.GetNewId(this);
             MyExams= new List<MedicalExam>();
 
             Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
