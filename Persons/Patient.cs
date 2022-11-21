@@ -26,8 +26,6 @@ namespace ConsoleMedicalLogger.Persons
             Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
         }
 
-        public Patient() { }
-
         public void ChosePersonalDoctor(Doctor doctor)
         {
             if (chosenDoctor == doctor)
