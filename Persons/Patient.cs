@@ -14,7 +14,14 @@ namespace ConsoleMedicalLogger.Persons
     {
         public string PersonalId { get; }
         public string MedicalRecordId { get; }
-        public Doctor? chosenDoctor { get; set; }
+
+        private Doctor? chosenDoctor;
+
+        public Doctor? ChosenDoctor
+        {
+            get { return chosenDoctor; }
+        }
+
         public List<MedicalExam> MyExams { get; set; }
 
         public Patient(string name, string surname, string _personalId):base(name, surname)
