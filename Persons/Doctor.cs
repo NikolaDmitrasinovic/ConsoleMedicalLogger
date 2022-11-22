@@ -24,6 +24,7 @@ namespace ConsoleMedicalLogger.Persons
         {
             Specialization = specialization;
             MyPatients = new List<Patient>();
+            availableDoctors.Add(this);
 
             Logger.LogEntry($"Kreiran doktor \"{name}\"");
         }
@@ -97,7 +98,7 @@ namespace ConsoleMedicalLogger.Persons
                 List<Doctor> doctors = availableDoctors.Where(d => d.patientsCount == patientsNum).ToList();
 
                 Random rdm = new Random();
-                return doctors[rdm.Next(1, availableDoctors.Count + 1)];
+                return doctors[rdm.Next(0, doctors.Count())];
             }
             return null;
         }
