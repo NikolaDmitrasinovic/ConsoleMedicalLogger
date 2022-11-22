@@ -86,8 +86,17 @@ namespace ConsoleMedicalLogger.Persons
         {
             if (availableDoctors.Count>0)
             {
+                int patientsNum = availableDoctors[0].patientsCount;
+                foreach (Doctor doc in availableDoctors)
+                {
+                    if (patientsNum > doc.patientsCount)
+                    {
+                        patientsNum = doc.patientsCount;
+                    }
+                }
+                List<Doctor> doctors = availableDoctors.Where(d => d.patientsCount == patientsNum).ToList();
+
                 Random rdm = new Random();
-                Doctor[] doctors = availableDoctors.ToArray();
                 return doctors[rdm.Next(1, availableDoctors.Count + 1)];
             }
             return null;
