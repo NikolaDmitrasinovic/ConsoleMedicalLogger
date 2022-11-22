@@ -12,6 +12,7 @@ namespace ConsoleMedicalLogger.Persons.IPerson
     {
         void CallForExam(Patient patient, string exam);
 
-        void AddRemovePatient(Patient patient);
+        void AddPatient(Patient patient);
+        void RemovePatient(Patient patient);
     }
 }
