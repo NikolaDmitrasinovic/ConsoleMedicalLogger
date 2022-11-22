@@ -27,7 +27,8 @@ namespace ConsoleMedicalLogger.Persons
 
             Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
 
-            //add automatic doctor chooser
+            chosenDoctor = Doctor.GetFreeDoctor();
+            ChosePersonalDoctor(chosenDoctor);
         }
 
         public Patient(string name, string surname, string personalId, Doctor doctor):base(name, surname)
@@ -39,7 +40,7 @@ namespace ConsoleMedicalLogger.Persons
             Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
 
             chosenDoctor = doctor;
-            ChosePersonalDoctor(doctor); //implement new method for chooseing doctor
+            ChosePersonalDoctor(doctor);
         }
 
         public void ChosePersonalDoctor(Doctor doctor)

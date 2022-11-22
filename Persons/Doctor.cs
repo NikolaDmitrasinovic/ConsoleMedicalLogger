@@ -81,5 +81,16 @@ namespace ConsoleMedicalLogger.Persons
                 availableDoctors.Remove(this);
             }
         }
+
+        public static Doctor GetFreeDoctor()
+        {
+            if (availableDoctors.Count>0)
+            {
+                Random rdm = new Random();
+                Doctor[] doctors = availableDoctors.ToArray();
+                return doctors[rdm.Next(1, availableDoctors.Count + 1)];
+            }
+            return null;
+        }
     }
 }
