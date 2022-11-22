@@ -105,7 +105,7 @@ namespace ConsoleMedicalLogger.Persons
             return null;
         }
 
-        public bool AnyFreeDoctors()
+        public static bool AnyFreeDoctors()
         {
             if (availableDoctors.Count> 0)
             {

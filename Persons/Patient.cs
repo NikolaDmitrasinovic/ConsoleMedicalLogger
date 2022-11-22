@@ -30,11 +30,17 @@ namespace ConsoleMedicalLogger.Persons
 
             PersonalId = _personalId;
             MedicalRecordId = id.GetNewId(this);
-            MyExams= new List<MedicalExam>();
+            MyExams= new List<MedicalExam>();            
 
-            Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
-
-            ChosePersonalDoctor(Doctor.GetFreeDoctor());
+            if (Doctor.AnyFreeDoctors())
+            {
+                Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+                ChosePersonalDoctor(Doctor.GetFreeDoctor());
+            }
+            else
+            {
+                Console.WriteLine("Na zalost nemamo slobodnih lekara za izbor");
+            }
         }
 
         public Patient(string name, string surname, string personalId, Doctor doctor):base(name, surname)
@@ -43,9 +49,15 @@ namespace ConsoleMedicalLogger.Persons
             MedicalRecordId = RecordIdGenerator.Instance.GetNewId(this);
             MyExams = new List<MedicalExam>();
 
-            Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
-
-            ChosePersonalDoctor(doctor);
+            if (Doctor.AnyFreeDoctors())
+            {
+                Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+                ChosePersonalDoctor(doctor);
+            }
+            else
+            {
+                Console.WriteLine("Na zalost nemamo slobodnih lekara za izbor");
+            }            
         }
 
         public void ChosePersonalDoctor(Doctor doctor)
