@@ -49,6 +49,7 @@ namespace ConsoleMedicalLogger.Persons
             {
                 MyPatients.Add(patient);
                 patientsCount++;
+                UpdateAvailability();
             }
         }
 
@@ -58,6 +59,7 @@ namespace ConsoleMedicalLogger.Persons
             {
                 MyPatients.Remove(patient);
                 patientsCount--;
+                UpdateAvailability();
             }
         }
 
@@ -101,6 +103,15 @@ namespace ConsoleMedicalLogger.Persons
                 return doctors[rdm.Next(0, doctors.Count())];
             }
             return null;
+        }
+
+        public bool AnyFreeDoctors()
+        {
+            if (availableDoctors.Count> 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
