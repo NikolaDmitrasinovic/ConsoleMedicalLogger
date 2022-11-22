@@ -26,6 +26,20 @@ namespace ConsoleMedicalLogger.Persons
             MyExams= new List<MedicalExam>();
 
             Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+
+            //add automatic doctor chooser
+        }
+
+        public Patient(string name, string surname, string personalId, Doctor doctor):base(name, surname)
+        {
+            PersonalId = personalId;
+            MedicalRecordId = RecordIdGenerator.Instance.GetNewId(this);
+            MyExams = new List<MedicalExam>();
+
+            Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+
+            chosenDoctor = doctor;
+            ChosePersonalDoctor(doctor); //implement new method for chooseing doctor
         }
 
         public void ChosePersonalDoctor(Doctor doctor)
