@@ -16,6 +16,10 @@ namespace ConsoleMedicalLogger.Persons
         public string Specialization { get; set; }
         public List<Patient> MyPatients { get; }
 
+        private int patientsCount = 0;
+
+        private static List<Doctor> availableDoctors = new List<Doctor>();
+
         public Doctor(string name, string surname, string specialization):base(name, surname)
         {
             Specialization = specialization;
@@ -38,15 +42,43 @@ namespace ConsoleMedicalLogger.Persons
             }           
         }
 
-        public void AddRemovePatient(Patient patient)
+        public void AddPatient(Patient patient)
+        {
+            if (TestAvailability() && !MyPatients.Contains(patient))
+            {
+                MyPatients.Add(patient);
+                patientsCount++;
+            }
+        }
+
+        public void RemovePatient(Patient patient)
         {
             if (MyPatients.Contains(patient))
             {
                 MyPatients.Remove(patient);
+                patientsCount--;
             }
-            else
+        }
+
+        private bool TestAvailability()
+        {
+            if (availableDoctors.Contains(this))
             {
-                MyPatients.Add(patient);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void UpdateAvailability()
+        {
+            if (patientsCount < 5 && !TestAvailability())
+            {
+                availableDoctors.Add(this);
+            }
+            else if (patientsCount >= 5 && TestAvailability())
+            {
+                availableDoctors.Remove(this);
             }
         }
     }

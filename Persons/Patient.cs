@@ -51,10 +51,10 @@ namespace ConsoleMedicalLogger.Persons
             }
             else if (chosenDoctor != null && chosenDoctor != doctor)
             {
-                chosenDoctor.AddRemovePatient(this);
+                chosenDoctor.RemovePatient(this);
             }
             chosenDoctor = doctor;
-            chosenDoctor.AddRemovePatient(this);
+            chosenDoctor.AddPatient(this);
 
             Logger.LogEntry($"Izabran lekar: \"{doctor.Name}\", pacijent: \"{Name}\"");
         }
