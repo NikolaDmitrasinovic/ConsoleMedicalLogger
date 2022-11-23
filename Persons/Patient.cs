@@ -14,7 +14,14 @@ namespace ConsoleMedicalLogger.Persons
     {
         public string PersonalId { get; }
         public string MedicalRecordId { get; }
-        public Doctor? chosenDoctor { get; set; }
+
+        private Doctor? chosenDoctor;
+
+        public Doctor? ChosenDoctor
+        {
+            get { return chosenDoctor; }
+        }
+
         public List<MedicalExam> MyExams { get; set; }
 
         public Patient(string name, string surname, string _personalId):base(name, surname)
@@ -23,9 +30,34 @@ namespace ConsoleMedicalLogger.Persons
 
             PersonalId = _personalId;
             MedicalRecordId = id.GetNewId(this);
-            MyExams= new List<MedicalExam>();
+            MyExams= new List<MedicalExam>();            
 
-            Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+            if (Doctor.AnyFreeDoctors())
+            {
+                Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+                ChosePersonalDoctor(Doctor.GetFreeDoctor());
+            }
+            else
+            {
+                Console.WriteLine("Na zalost nemamo slobodnih lekara za izbor");
+            }
+        }
+
+        public Patient(string name, string surname, string personalId, Doctor doctor):base(name, surname)
+        {
+            PersonalId = personalId;
+            MedicalRecordId = RecordIdGenerator.Instance.GetNewId(this);
+            MyExams = new List<MedicalExam>();
+
+            if (Doctor.AnyFreeDoctors())
+            {
+                Logger.LogEntry($"Kreiran pacijent \"{Name}\"");
+                ChosePersonalDoctor(doctor);
+            }
+            else
+            {
+                Console.WriteLine("Na zalost nemamo slobodnih lekara za izbor");
+            }            
         }
 
         public void ChosePersonalDoctor(Doctor doctor)
@@ -37,10 +69,10 @@ namespace ConsoleMedicalLogger.Persons
             }
             else if (chosenDoctor != null && chosenDoctor != doctor)
             {
-                chosenDoctor.AddRemovePatient(this);
+                chosenDoctor.RemovePatient(this);
             }
             chosenDoctor = doctor;
-            chosenDoctor.AddRemovePatient(this);
+            chosenDoctor.AddPatient(this);
 
             Logger.LogEntry($"Izabran lekar: \"{doctor.Name}\", pacijent: \"{Name}\"");
         }
